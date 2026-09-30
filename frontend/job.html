@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeIQ - Job Analyzer</title>
+    <link rel="stylesheet" href="job.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Resume<span>IQ</span>
+    </div>
+
+    <div class="nav-right">
+        <a href="index.html">Resume Analyzer</a>
+
+        <div class="credits">
+            Free Credits:
+            <strong id="freeCredits">0</strong>
+        </div>
+
+        <span id="userName">User</span>
+
+        <button id="logoutBtn">
+            Logout
+        </button>
+    </div>
+
+</header>
+
+
+<main class="page">
+
+    <section class="hero">
+
+        <p class="eyebrow">
+            AI CAREER MATCHING
+        </p>
+
+        <h1>
+            Job Description Analyzer
+        </h1>
+
+        <p>
+            Compare your resume with a job description
+            and discover your match, missing skills,
+            and improvement areas.
+        </p>
+
+    </section>
+
+
+    <section class="analyzer-card">
+
+        <div class="section-header">
+
+            <h2>
+                Upload Your Resume
+            </h2>
+
+            <p>
+                Upload the resume you want to compare
+                with the job description.
+            </p>
+
+        </div>
+
+
+        <div class="upload-area">
+
+            <input
+                type="file"
+                id="resumeFile"
+                accept=".pdf,.docx,.txt,.png,.jpg,.jpeg"
+                hidden
+            >
+
+            <label
+                for="resumeFile"
+                class="upload-box">
+
+                <div class="upload-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Choose Resume
+                </h3>
+
+                <p id="fileName">
+                    PDF, DOCX, TXT, PNG or JPG
+                </p>
+
+            </label>
+
+        </div>
+
+
+        <div class="section-header job-heading">
+
+            <h2>
+                Job Description
+            </h2>
+
+            <p>
+                Paste the complete job description below.
+            </p>
+
+        </div>
+
+
+        <textarea
+            id="jobDescription"
+            placeholder="Paste the job description here...
+
+Example:
+
+We are looking for a Python Backend Developer.
+
+Requirements:
+- Python
+- FastAPI
+- REST APIs
+- SQL
+- Git
+- Docker
+- AWS
+
+Responsibilities:
+- Build backend APIs
+- Work with databases
+- Develop scalable applications..."
+        ></textarea>
+
+
+        <div
+            id="errorMessage"
+            class="error hidden">
+        </div>
+
+
+        <button
+            type="button"
+            id="analyzeBtn"
+            class="analyze-button">
+
+            Analyze Job Match
+
+        </button>
+
+
+        <div
+            id="loading"
+            class="loading hidden">
+
+            <div class="spinner"></div>
+
+            <p>
+                Analyzing your resume against the job description...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="resultsSection"
+        class="results-section hidden">
+
+        <div class="results-heading">
+
+            <p class="eyebrow">
+                ANALYSIS COMPLETE
+            </p>
+
+            <h2>
+                Your Job Match Analysis
+            </h2>
+
+        </div>
+
+
+        <div class="match-score-card">
+
+            <p>
+                Job Match Score
+            </p>
+
+            <div class="match-score">
+                <span id="matchScore">0</span>
+                <small>/ 100</small>
+            </div>
+
+            <p id="matchSummary">
+                -
+            </p>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>
+                Matched Skills
+            </h3>
+
+            <div
+                id="matchedSkills"
+                class="tags">
+            </div>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>
+                Missing Skills
+            </h3>
+
+            <div
+                id="missingSkills"
+                class="tags">
+            </div>
+
+        </div>
+
+
+        <div class="two-column">
+
+            <div class="result-card">
+
+                <h3>
+                    Matched Requirements
+                </h3>
+
+                <ul id="matchedRequirements">
+                </ul>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <h3>
+                    Missing Requirements
+                </h3>
+
+                <ul id="missingRequirements">
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>
+                Recommendations
+            </h3>
+
+            <ul id="recommendations">
+            </ul>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>
+                Skills You Should Improve
+            </h3>
+
+            <div id="skillUpgrades">
+            </div>
+
+        </div>
+
+
+        <button
+            typr="button"
+            id="newAnalysisBtn"
+            class="secondary-button">
+
+            Analyze Another Job
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<script src="job.js"></script>
+
+</body>
+</html>
